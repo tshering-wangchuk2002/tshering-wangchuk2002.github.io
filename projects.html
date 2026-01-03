@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>All Projects - WordPress Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans:wght@400;500;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0f49bd",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light text-[#111827] font-display antialiased scroll-smooth"
+  >
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+      <header
+        class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-[#e7ebf3]"
+      >
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center gap-2">
+              <a
+                class="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                href="index.html"
+              >
+                <div
+                  class="flex items-center justify-center rounded-lg bg-primary/10 p-1.5 text-primary"
+                >
+                  <span class="material-symbols-outlined">terminal</span>
+                </div>
+                <span class="text-lg font-bold tracking-tight text-[#0d121b]"
+                  >Tshering</span
+                >
+              </a>
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+              <a class="text-sm font-medium text-primary" href="#">Work</a>
+              <a
+                class="text-sm font-medium text-[#4B5563] hover:text-primary transition-colors"
+                href="index.html#services"
+                >Services</a
+              >
+              <a
+                class="text-sm font-medium text-[#4B5563] hover:text-primary transition-colors"
+                href="index.html#about"
+                >About</a
+              >
+              <a
+                class="text-sm font-medium text-[#4B5563] hover:text-primary transition-colors"
+                href="index.html#contact"
+                >Contact</a
+              >
+            </nav>
+            <div class="flex items-center gap-4">
+              <a
+                class="hidden sm:inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all"
+                href="index.html#contact"
+              >
+                Hire Me
+              </a>
+              <button class="md:hidden p-2 text-gray-600">
+                <span class="material-symbols-outlined">menu</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="flex-grow">
+        <section class="bg-background-light py-16 lg:py-24">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div
+              class="flex flex-col md:items-center md:text-center max-w-3xl mx-auto mb-16"
+            >
+              <h1
+                class="text-4xl font-extrabold tracking-tight text-[#111827] sm:text-5xl mb-6"
+              >
+                Selected Works
+              </h1>
+              <p class="text-lg leading-8 text-[#4B5563]">
+                A curated collection of my 15 most recent WordPress projects.
+                From headless e-commerce platforms to custom enterprise plugins,
+                explore the technical solutions I've delivered.
+              </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhhTgZ1L4p6EeDT3u6A358COC_J-rVaZvAIQwVpqGz9eO6O4nzd2GGCFXEIDSqOKh1ToEAKQj654SDQj75YbZCucwcg859-JnJlVvxwx1ms8dTWtlbYqcC_n0WYB2pz_WHUPmRwZ5aHTlcBWF8jQnnRhq4EQ_bCjpLvmgg4UfRl0CyRibioLld-5T1rioQNOYeXz9bFxFcVQJEv1bLMWec7zD_QptQFdbGQZk72GBieW6Ch3smckv0pHqJ0s5-J5CKzzxlMjccbyki');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    E-commerce Redesign
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    A complete overhaul of a WooCommerce store improving
+                    checkout flow.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >WooCommerce</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >React</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzURHAnbRhAe7oHTdwtsM9f7eusgeKRvXbu2sS-wmF5fqLKTDvkmErRrexNnEU2Frwtc5cT8dm9R2yCwy5eY_XFIKnRa1G1l3Vhh9jiHDaM2N1YRfrsL0feS49VOoeiOAfkmZT2Za6sRcZzOXFxtgKe3F4k9UD2LsE5Ej2RcQ5n-4e_tlRPfB6sb4NIvogzkt4n3ipVninlcSUTI0gLPybWdzFlLFRt-oU32k3QJTvKBFTb_FTmob5RM61gjTjSZVXaVOXh0k1-vAc');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Corporate Agency Site
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Custom block theme development using FSE for a marketing
+                    agency.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >FSE</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Gutenberg</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDo8V9oYhZsdrgSjJv9NukB0ZBfjEX3DSuRuRFFR8nfxn_Xpe6W8V1oRacZj416U-3Uo2KJPZCB9Lio7-V4GEmIkqKvw2cpSU0BHUGVAREGlH4Ty3EbOEYqQ68lO-4d_QcGq3mpw4J25rIcRLquxLwMS2-kKXJklGusN7Gfd3oo2aNcqXqHfmJeq9hggklF9-94qHUgmULMqQPp_WpJSRRw4s-ewQfBsHkcf-ucWoihx-Zwo1KxLHdl6W6C3dkLfqsxhoO4QZRj34P0');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Custom Plugin Suite
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    A suite of custom plugins for a membership site, handling
+                    subscriptions.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >PHP</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >REST API</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhhTgZ1L4p6EeDT3u6A358COC_J-rVaZvAIQwVpqGz9eO6O4nzd2GGCFXEIDSqOKh1ToEAKQj654SDQj75YbZCucwcg859-JnJlVvxwx1ms8dTWtlbYqcC_n0WYB2pz_WHUPmRwZ5aHTlcBWF8jQnnRhq4EQ_bCjpLvmgg4UfRl0CyRibioLld-5T1rioQNOYeXz9bFxFcVQJEv1bLMWec7zD_QptQFdbGQZk72GBieW6Ch3smckv0pHqJ0s5-J5CKzzxlMjccbyki');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Modern Furniture Store
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Headless WordPress implementation with Next.js frontend for
+                    speed.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Headless</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Next.js</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzURHAnbRhAe7oHTdwtsM9f7eusgeKRvXbu2sS-wmF5fqLKTDvkmErRrexNnEU2Frwtc5cT8dm9R2yCwy5eY_XFIKnRa1G1l3Vhh9jiHDaM2N1YRfrsL0feS49VOoeiOAfkmZT2Za6sRcZzOXFxtgKe3F4k9UD2LsE5Ej2RcQ5n-4e_tlRPfB6sb4NIvogzkt4n3ipVninlcSUTI0gLPybWdzFlLFRt-oU32k3QJTvKBFTb_FTmob5RM61gjTjSZVXaVOXh0k1-vAc');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Architecture Firm
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Minimalist theme with complex masonry layouts and smooth
+                    page transitions.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >GSAP</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Barba.js</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDo8V9oYhZsdrgSjJv9NukB0ZBfjEX3DSuRuRFFR8nfxn_Xpe6W8V1oRacZj416U-3Uo2KJPZCB9Lio7-V4GEmIkqKvw2cpSU0BHUGVAREGlH4Ty3EbOEYqQ68lO-4d_QcGq3mpw4J25rIcRLquxLwMS2-kKXJklGusN7Gfd3oo2aNcqXqHfmJeq9hggklF9-94qHUgmULMqQPp_WpJSRRw4s-ewQfBsHkcf-ucWoihx-Zwo1KxLHdl6W6C3dkLfqsxhoO4QZRj34P0');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    SaaS Analytics
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Dashboard integration visualizing user data directly within
+                    WordPress admin.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Chart.js</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >API</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhhTgZ1L4p6EeDT3u6A358COC_J-rVaZvAIQwVpqGz9eO6O4nzd2GGCFXEIDSqOKh1ToEAKQj654SDQj75YbZCucwcg859-JnJlVvxwx1ms8dTWtlbYqcC_n0WYB2pz_WHUPmRwZ5aHTlcBWF8jQnnRhq4EQ_bCjpLvmgg4UfRl0CyRibioLld-5T1rioQNOYeXz9bFxFcVQJEv1bLMWec7zD_QptQFdbGQZk72GBieW6Ch3smckv0pHqJ0s5-J5CKzzxlMjccbyki');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Fashion Boutique
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    High-end fashion retail site with custom product filtering
+                    and lookbooks.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >WooCommerce</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >AJAX</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzURHAnbRhAe7oHTdwtsM9f7eusgeKRvXbu2sS-wmF5fqLKTDvkmErRrexNnEU2Frwtc5cT8dm9R2yCwy5eY_XFIKnRa1G1l3Vhh9jiHDaM2N1YRfrsL0feS49VOoeiOAfkmZT2Za6sRcZzOXFxtgKe3F4k9UD2LsE5Ej2RcQ5n-4e_tlRPfB6sb4NIvogzkt4n3ipVninlcSUTI0gLPybWdzFlLFRt-oU32k3QJTvKBFTb_FTmob5RM61gjTjSZVXaVOXh0k1-vAc');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Tech Startup Landing
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Conversion-optimized landing page for a Series A funded
+                    fintech startup.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Tailwind</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Alpine.js</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDo8V9oYhZsdrgSjJv9NukB0ZBfjEX3DSuRuRFFR8nfxn_Xpe6W8V1oRacZj416U-3Uo2KJPZCB9Lio7-V4GEmIkqKvw2cpSU0BHUGVAREGlH4Ty3EbOEYqQ68lO-4d_QcGq3mpw4J25rIcRLquxLwMS2-kKXJklGusN7Gfd3oo2aNcqXqHfmJeq9hggklF9-94qHUgmULMqQPp_WpJSRRw4s-ewQfBsHkcf-ucWoihx-Zwo1KxLHdl6W6C3dkLfqsxhoO4QZRj34P0');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Membership Portal
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Gated content platform with recurring payments and community
+                    forums.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >MemberPress</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >bbPress</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhhTgZ1L4p6EeDT3u6A358COC_J-rVaZvAIQwVpqGz9eO6O4nzd2GGCFXEIDSqOKh1ToEAKQj654SDQj75YbZCucwcg859-JnJlVvxwx1ms8dTWtlbYqcC_n0WYB2pz_WHUPmRwZ5aHTlcBWF8jQnnRhq4EQ_bCjpLvmgg4UfRl0CyRibioLld-5T1rioQNOYeXz9bFxFcVQJEv1bLMWec7zD_QptQFdbGQZk72GBieW6Ch3smckv0pHqJ0s5-J5CKzzxlMjccbyki');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Organic Food Market
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Local delivery system for organic produce, with route
+                    optimization integration.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >ACF</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Maps API</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzURHAnbRhAe7oHTdwtsM9f7eusgeKRvXbu2sS-wmF5fqLKTDvkmErRrexNnEU2Frwtc5cT8dm9R2yCwy5eY_XFIKnRa1G1l3Vhh9jiHDaM2N1YRfrsL0feS49VOoeiOAfkmZT2Za6sRcZzOXFxtgKe3F4k9UD2LsE5Ej2RcQ5n-4e_tlRPfB6sb4NIvogzkt4n3ipVninlcSUTI0gLPybWdzFlLFRt-oU32k3QJTvKBFTb_FTmob5RM61gjTjSZVXaVOXh0k1-vAc');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Legal Consultancy
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Accessible, SEO-optimized website for a law firm with
+                    appointment booking.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Accessibility</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >SEO</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDo8V9oYhZsdrgSjJv9NukB0ZBfjEX3DSuRuRFFR8nfxn_Xpe6W8V1oRacZj416U-3Uo2KJPZCB9Lio7-V4GEmIkqKvw2cpSU0BHUGVAREGlH4Ty3EbOEYqQ68lO-4d_QcGq3mpw4J25rIcRLquxLwMS2-kKXJklGusN7Gfd3oo2aNcqXqHfmJeq9hggklF9-94qHUgmULMqQPp_WpJSRRw4s-ewQfBsHkcf-ucWoihx-Zwo1KxLHdl6W6C3dkLfqsxhoO4QZRj34P0');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Crypto Tracker
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Real-time cryptocurrency price tracking widget suite for
+                    news sites.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Web3</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >React</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhhTgZ1L4p6EeDT3u6A358COC_J-rVaZvAIQwVpqGz9eO6O4nzd2GGCFXEIDSqOKh1ToEAKQj654SDQj75YbZCucwcg859-JnJlVvxwx1ms8dTWtlbYqcC_n0WYB2pz_WHUPmRwZ5aHTlcBWF8jQnnRhq4EQ_bCjpLvmgg4UfRl0CyRibioLld-5T1rioQNOYeXz9bFxFcVQJEv1bLMWec7zD_QptQFdbGQZk72GBieW6Ch3smckv0pHqJ0s5-J5CKzzxlMjccbyki');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Luxury Watch Store
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Bespoke e-commerce experience with 3D product viewer and
+                    concierge chat.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Three.js</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Socket.io</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzURHAnbRhAe7oHTdwtsM9f7eusgeKRvXbu2sS-wmF5fqLKTDvkmErRrexNnEU2Frwtc5cT8dm9R2yCwy5eY_XFIKnRa1G1l3Vhh9jiHDaM2N1YRfrsL0feS49VOoeiOAfkmZT2Za6sRcZzOXFxtgKe3F4k9UD2LsE5Ej2RcQ5n-4e_tlRPfB6sb4NIvogzkt4n3ipVninlcSUTI0gLPybWdzFlLFRt-oU32k3QJTvKBFTb_FTmob5RM61gjTjSZVXaVOXh0k1-vAc');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Construction Co.
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Robust project portfolio and tender portal for a large
+                    construction firm.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Elementor</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >CPT UI</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+              >
+                <div class="aspect-video w-full overflow-hidden relative">
+                  <div
+                    class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDo8V9oYhZsdrgSjJv9NukB0ZBfjEX3DSuRuRFFR8nfxn_Xpe6W8V1oRacZj416U-3Uo2KJPZCB9Lio7-V4GEmIkqKvw2cpSU0BHUGVAREGlH4Ty3EbOEYqQ68lO-4d_QcGq3mpw4J25rIcRLquxLwMS2-kKXJklGusN7Gfd3oo2aNcqXqHfmJeq9hggklF9-94qHUgmULMqQPp_WpJSRRw4s-ewQfBsHkcf-ucWoihx-Zwo1KxLHdl6W6C3dkLfqsxhoO4QZRj34P0');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                      >View Case Study</span
+                    >
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-xl font-bold text-[#111827] mb-2">
+                    Learning Platform
+                  </h3>
+                  <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                    Educational site with course progression tracking and
+                    automated certificates.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >LearnDash</span
+                    >
+                    <span
+                      class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                      >Gamification</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-20 border-t border-gray-200 pt-16 text-center">
+              <h2 class="text-2xl font-bold tracking-tight text-[#111827] mb-4">
+                Have a project in mind?
+              </h2>
+              <p class="text-[#4B5563] mb-8">
+                I'm currently available for new opportunities.
+              </p>
+              <a
+                class="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary/90 transition-all"
+                href="index.html#contact"
+              >
+                Start a Conversation
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="bg-background-dark py-12">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center gap-6"
+          >
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-white/80"
+                >terminal</span
+              >
+              <span class="text-lg font-bold text-white">Tshering</span>
+            </div>
+            <div class="flex gap-6">
+              <a
+                class="text-gray-400 hover:text-white transition-colors"
+                href="#"
+              >
+                <span class="sr-only">GitHub</span>
+                <svg
+                  aria-hidden="true"
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                class="text-gray-400 hover:text-white transition-colors"
+                href="#"
+              >
+                <span class="sr-only">LinkedIn</span>
+                <svg
+                  aria-hidden="true"
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="mt-8 border-t border-gray-800 pt-8 flex justify-center md:justify-start"
+          >
+            <p class="text-sm text-gray-500">
+              © 2026 Tshering Wangchuk. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+      <a
+        aria-label="Chat on WhatsApp"
+        class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#128C7E] shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]"
+        href="https://wa.me/1234567890"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <svg
+          class="w-8 h-8 text-white fill-current"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

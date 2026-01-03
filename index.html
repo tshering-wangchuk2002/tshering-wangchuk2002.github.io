@@ -1,370 +1,892 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Web Developer & Designer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/9751234567890" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
-    </a>
-
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">Portfolio</a>
-            <nav>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="menu_item">Home</a></li>
-                    <li><a href="#about" class="menu_item">About</a></li>
-                    <li><a href="#skills" class="menu_item">Skills</a></li>
-                    <li><a href="#portfolio" class="menu_item">Portfolio</a></li>
-                    <li><a href="#services" class="menu_item">Services</a></li>
-                    <li><a href="#contact" class="btn btn-primary">Contact</a></li>
-                </ul>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tshering Wangchuk</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans:wght@400;500;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0f49bd",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light text-[#111827] font-display antialiased scroll-smooth"
+  >
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+      <!-- Header section -->
+      <header
+        class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-[#e7ebf3]"
+      >
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div
+                class="flex items-center justify-center rounded-lg bg-primary/10 p-1.5 text-primary"
+              >
+                <span class="material-symbols-outlined">terminal</span>
+              </div>
+              <span class="text-lg font-bold tracking-tight text-[#0d121b]"
+                >Tshering</span
+              >
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+              <a
+                class="text-sm font-medium text-[#4B5563] hover:text-primary transition-colors"
+                href="#work"
+                >Work</a
+              >
+              <a
+                class="text-sm font-medium text-[#4B5563] hover:text-primary transition-colors"
+                href="#services"
+                >Services</a
+              >
+              <a
+                class="text-sm font-medium text-[#4B5563] hover:text-primary transition-colors"
+                href="#about"
+                >About</a
+              >
+              <a
+                class="text-sm font-medium text-[#4B5563] hover:text-primary transition-colors"
+                href="#testimonials"
+                >Testimonials</a
+              >
+              <a
+                class="text-sm font-medium text-[#4B5563] hover:text-primary transition-colors"
+                href="#contact"
+                >Contact</a
+              >
             </nav>
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="flex items-center gap-4">
+              <a
+                class="hidden sm:inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all"
+                href="#contact"
+              >
+                Hire Me
+              </a>
+              <button class="md:hidden p-2 text-gray-600">
+                <span class="material-symbols-outlined">menu</span>
+              </button>
             </div>
+          </div>
         </div>
-    </header>
+      </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-tag">Web Developer & Designer</div>
-                <h1>Tshering Wangchuk</h1>
-                <p>I craft modern, responsive websites and applications that help businesses thrive in the digital world. Let's bring your vision to life with clean code and beautiful design.</p>
-                <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
+      <!-- Home section -->
+      <section class="relative bg-white pt-16 pb-20 lg:pt-32 lg:pb-28">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="max-w-2xl">
+              <h1
+                class="text-4xl font-extrabold tracking-tight text-[#111827] sm:text-5xl lg:text-5xl mb-6"
+              >
+                Building High-Performance Website Experiences
+              </h1>
+              <p class="text-lg leading-8 text-[#4B5563] mb-8">
+                I help agencies and businesses build custom WordPress websites
+                using modern standards, best practices, and optimized
+                performance.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <a
+                  class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary/90 transition-all"
+                  href="projects.html"
+                >
+                  View Recent Work
+                </a>
+                <a
+                  class="inline-flex items-center justify-center rounded-lg bg-[#f3f4f6] px-6 py-3 text-base font-semibold text-[#111827] hover:bg-[#e5e7eb] transition-all"
+                  href="tel:+97517796132"
+                >
+                  Contact Me
+                </a>
+              </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">💻</div>
-                    <h3>Modern Development</h3>
-                    <p>Building with the latest technologies and best practices to ensure your project is future-proof.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Responsive Design</h3>
-                    <p>Your website will look perfect on every device, from mobile phones to large desktop screens.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Fast Performance</h3>
-                    <p>Optimized code and assets ensure lightning-fast loading times and smooth user experiences.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Beautiful UI/UX</h3>
-                    <p>Thoughtful design that prioritizes user experience and creates lasting impressions.</p>
-                </div>
+            <div
+              class="relative lg:h-full min-h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-primary/40 to-transparent mix-blend-multiply z-10"
+              ></div>
+              <div
+                class="w-full h-full bg-cover bg-center"
+                data-alt="Computer screen displaying code in a dark editor environment"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvMAHIppN-ar9z91ZGKAXzppAQ-k4y2AVG1kDQiYJU_SPPVXsF27gbyEa_a3wXIkvvrdgcU6ankOTaFbF_Toenlfl9LH8rYUaMzuKcsJ1P2DhemxE_6b0wKOkzGEAccEjBw0ChZQosxu71NffUKQqIrskJsyDbRVFaVJvarhAMd6TnRUfZvB_v7raTsJ7MrXOpO7unZOX_JuBm6pHmrgAG6GMxPBYH1TsoNM4Sn0kVbkZ4zFc3navtu7fHExfME9_LcaiN8_LFl2wX');
+                "
+              ></div>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-container">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop" alt="Developer workspace">
+      <!-- Works section -->
+      <section class="bg-background-light py-20" id="work">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between mb-12"
+          >
+            <div>
+              <h2
+                class="text-3xl font-bold tracking-tight text-[#111827] sm:text-4xl"
+              >
+                Recent Work
+              </h2>
+              <p class="mt-4 text-lg text-[#4B5563]">
+                Selected projects showcasing custom development.
+              </p>
+            </div>
+            <a
+              class="hidden md:flex items-center gap-1 text-primary font-semibold hover:gap-2 transition-all"
+              href="#"
+            >
+              View GitHub
+              <span class="material-symbols-outlined text-sm"
+                >arrow_outward</span
+              >
+            </a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+            >
+              <div class="aspect-video w-full overflow-hidden relative">
+                <div
+                  class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Clean minimalist e-commerce dashboard interface"
+                  style="background-image: url('Assets/rcsc.png')"
+                ></div>
+                <div
+                  class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                >
+                  <span
+                    class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                    ><a href="https://rcsc.gov.bt" target="_blank"
+                      >View Website</a
+                    ></span
+                  >
                 </div>
-                <div class="about-content">
-                    <h2>About Me</h2>
-                    <p>I'm a passionate web developer and designer based in Thimphu, Bhutan, with a love for creating beautiful and functional digital experiences. With years of experience in the industry, I've helped numerous clients bring their ideas to life.</p>
-                    <p>My approach combines technical expertise with creative design thinking, ensuring that every project not only looks great but also performs exceptionally well. I believe in writing clean, maintainable code and creating intuitive user interfaces.</p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">30+</div>
-                            <div class="stat-label">Happy Clients</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">5+</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
+              </div>
+              <div class="p-6 flex flex-col flex-1">
+                <h3 class="text-xl font-bold text-[#111827] mb-2">
+                  Royal Civil Service Commission
+                </h3>
+                <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                  A comprehensive redesign of the national civil service
+                  platform improving user experience and reducing load times by
+                  40%.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                  <span
+                    class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                    >Block Editor</span
+                  >
+                  <span
+                    class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                    >Smart Slider</span
+                  >
+                  <span
+                    class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                    >Download Manager</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+            >
+              <div class="aspect-video w-full overflow-hidden relative">
+                <div
+                  class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Modern corporate office building glass facade website design"
+                  style="background-image: url('Assets/rbp.png')"
+                ></div>
+                <div
+                  class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                >
+                  <span
+                    class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                    ><a href="https://rbp.gov.bt" target="_blank"
+                      >View Website</a
+                    ></span
+                  >
+                </div>
+              </div>
+              <div class="p-6 flex flex-col flex-1">
+                <h3 class="text-xl font-bold text-[#111827] mb-2">
+                  Royal Bhutan Police
+                </h3>
+                <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                  A complete redesign of the law enforcement portal introducing
+                  online complaint filing and real-time case tracking
+                  capabilities.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                  <span
+                    class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                    >Elementor</span
+                  >
+                  <span
+                    class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                    >Contact Form 7</span
+                  >
+                  <span
+                    class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                    >Smart Slider</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-[#e5e7eb]"
+            >
+              <div class="aspect-video w-full overflow-hidden relative">
+                <div
+                  class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Analytics dashboard charts and graphs interface"
+                  style="background-image: url('Assets/gelephu\ thromde.png')"
+                ></div>
+                <div
+                  class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                >
+                  <span
+                    class="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#111827]"
+                    ><a href="https://gelephuthrom.bt" target="_blank"
+                      >View Website</a
+                    ></span
+                  >
+                </div>
+              </div>
+              <div class="p-6 flex flex-col flex-1">
+                <h3 class="text-xl font-bold text-[#111827] mb-2">
+                  Gelephu Thromde
+                </h3>
+                <p class="text-[#4B5563] text-sm mb-4 flex-1">
+                  A complete overhaul of the municipal portal integrating
+                  citizen services and enabling online grievance redressal for
+                  residents.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                  <span
+                    class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                    >Block Editor</span
+                  >
+                  <span
+                    class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                    >Smart Slider</span
+                  >
+                  <span
+                    class="inline-flex items-center rounded-md bg-[#f3f4f6] px-2 py-1 text-xs font-medium text-[#4B5563]"
+                    >Contact Form 7</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-12 flex justify-center">
+            <a
+              class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary/90 transition-all"
+              href="projects.html"
+            >
+              View All Projects
+            </a>
+          </div>
+          <div class="mt-8 md:hidden flex justify-center">
+            <a
+              class="flex items-center gap-1 text-primary font-semibold"
+              href="#"
+            >
+              View GitHub
+              <span class="material-symbols-outlined text-sm"
+                >arrow_outward</span
+              >
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services section -->
+      <section class="bg-white py-20" id="services">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2
+              class="text-3xl font-bold tracking-tight text-[#111827] sm:text-4xl"
+            >
+              What I Do
+            </h2>
+            <p class="mt-4 text-lg text-[#4B5563]">
+              Specialized services tailored for agencies and businesses needing
+              robust Website solutions.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="p-8 rounded-2xl border border-[#e5e7eb] hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div
+                class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary group-hover:text-white text-2xl"
+                  >grid_view</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-[#111827] mb-3">
+                Custom Theme Dev
+              </h3>
+              <p class="text-[#4B5563] leading-relaxed">
+                Pixel-perfect implementation of Figma designs into lightweight,
+                performant WordPress themes using Block Editor or Classic tech.
+              </p>
+            </div>
+            <div
+              class="p-8 rounded-2xl border border-[#e5e7eb] hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div
+                class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary group-hover:text-white text-2xl"
+                  >extension</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-[#111827] mb-3">
+                Plugin Development
+              </h3>
+              <p class="text-[#4B5563] leading-relaxed">
+                Extending WordPress functionality with custom plugins, from
+                simple widgets to complex data processing tools.
+              </p>
+            </div>
+            <div
+              class="p-8 rounded-2xl border border-[#e5e7eb] hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div
+                class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary group-hover:text-white text-2xl"
+                  >trending_up</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-[#111827] mb-3">
+                SEO Optimization
+              </h3>
+              <p class="text-[#4B5563] leading-relaxed">
+                Improving site structure, metadata, and content for higher
+                search engine rankings and visibility.
+              </p>
+            </div>
+            <div
+              class="p-8 rounded-2xl border border-[#e5e7eb] hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div
+                class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary group-hover:text-white text-2xl"
+                  >touch_app</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-[#111827] mb-3">
+                User Experience Design
+              </h3>
+              <p class="text-[#4B5563] leading-relaxed">
+                Enhancing website usability and accessibility for a smooth,
+                engaging visitor experience.
+              </p>
+            </div>
+            <div
+              class="p-8 rounded-2xl border border-[#e5e7eb] hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div
+                class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary group-hover:text-white text-2xl"
+                  >shopping_cart</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-[#111827] mb-3">WooCommerce</h3>
+              <p class="text-[#4B5563] leading-relaxed">
+                Building custom checkout flows, product types, and specialized
+                e-commerce features that scale.
+              </p>
+            </div>
+            <div
+              class="p-8 rounded-2xl border border-[#e5e7eb] hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div
+                class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary group-hover:text-white text-2xl"
+                  >security</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-[#111827] mb-3">
+                Security &amp; Maintenance
+              </h3>
+              <p class="text-[#4B5563] leading-relaxed">
+                Hardening WordPress installations against vulnerabilities and
+                providing ongoing technical support.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About section-->
+      <section class="bg-background-light py-20 overflow-hidden" id="about">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative order-2 lg:order-1">
+              <div
+                class="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl bg-gray-200"
+              >
+                <div
+                  class="w-full h-full bg-cover bg-center"
+                  data-alt="Portrait of a developer working at a minimalist desk setup"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBB38FmwZu3bojr7dHCs7gZMDOdXI2JybU8QF4HL75RlK2TB7ewywhL-vh1HtAqlDAjGdWOtQqEXfRDkJtchOdJHjIVuu9xTl0Vr6h3kTTW5pHwgykPBGPDm7qYUiRmDkFeTU6S_ArjV6mR27qDTv_r3Gn0y0kL6HPpnnrh_xKnICHYy0267aMiT4nOP8Efo3hxD-mWLh5-JgZ97Om_1-HxuNhphP9-LVLpBQ1qiAH-gtpTFNp0cacigg6v_baKMVFTvgFio7xbsfJD');
+                  "
+                ></div>
+              </div>
+              <div
+                class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl z-0"
+              ></div>
+              <div
+                class="absolute -top-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl z-0"
+              ></div>
+            </div>
+            <div class="order-1 lg:order-2">
+              <h2
+                class="text-3xl font-bold tracking-tight text-[#111827] sm:text-4xl mb-6"
+              >
+                Meet the Developer
+              </h2>
+              <div class="space-y-4 text-lg text-[#4B5563]">
+                <p>
+                  Hi, I'm Tshering Wangchuk. I’ve been working with WordPress
+                  for over 2 years, creating websites that range from simple
+                  designs to complex business solutions.
+                </p>
+                <p>
+                  I believe great design matters, but performance and
+                  reliability matter more. I follow modern development
+                  practices—Git workflows, staging environments, and automated
+                  testing—to ensure every site works flawlessly.
+                </p>
+                <p>
+                  When I’m not building websites, I contribute to WordPress
+                  open-source projects, maintain plugins, and write about
+                  improving web performance.
+                </p>
+              </div>
+              <div class="mt-8 grid grid-cols-2 gap-4">
+                <div>
+                  <p class="text-3xl font-bold text-primary">2+</p>
+                  <p class="text-sm font-medium text-[#4B5563]">
+                    Years Experience
+                  </p>
+                </div>
+                <div>
+                  <p class="text-3xl font-bold text-primary">30+</p>
+                  <p class="text-sm font-medium text-[#4B5563]">
+                    Projects Delivered
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials section -->
+      <section class="bg-white py-24" id="testimonials">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-12 md:text-center max-w-3xl mx-auto">
+            <h2
+              class="text-3xl font-bold tracking-tight text-[#111827] sm:text-4xl"
+            >
+              Client Testimonials
+            </h2>
+            <p class="mt-4 text-lg text-[#4B5563]">
+              Feedback from agencies, founders, and project owners I've had the
+              pleasure to collaborate with.
+            </p>
+          </div>
+          <div
+            class="relative max-w-4xl mx-auto"
+            data-autoplay="true"
+            data-interval="4000"
+          >
+            <div class="relative group">
+              <button
+                aria-label="Previous testimonial"
+                class="absolute top-1/2 left-4 xl:-left-16 -translate-y-1/2 z-20 hidden md:flex h-12 w-12 items-center justify-center rounded-full bg-white text-primary shadow-lg border border-gray-100 hover:bg-gray-50 hover:scale-105 transition-all duration-300"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >arrow_back</span
+                >
+              </button>
+              <button
+                aria-label="Next testimonial"
+                class="absolute top-1/2 right-4 xl:-right-16 -translate-y-1/2 z-20 hidden md:flex h-12 w-12 items-center justify-center rounded-full bg-white text-primary shadow-lg border border-gray-100 hover:bg-gray-50 hover:scale-105 transition-all duration-300"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >arrow_forward</span
+                >
+              </button>
+              <div
+                class="flex overflow-x-auto snap-x snap-mandatory gap-0 pb-8 scrollbar-hide rounded-2xl"
+              >
+                <div class="snap-center shrink-0 w-full flex-shrink-0 p-4">
+                  <div
+                    class="bg-white rounded-2xl p-8 md:p-12 border border-gray-100 shadow-xl flex flex-col items-center text-center"
+                  >
+                    <div class="mb-6">
+                      <span
+                        class="material-symbols-outlined text-primary text-5xl"
+                        >format_quote</span
+                      >
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills-section" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2>My Skills</h2>
-                <p>A diverse skill set combining front-end development, back-end technologies, and design tools to create complete digital solutions.</p>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    
-                    <h3 class="skill-name">HTML & CSS</h3>
-                    <p class="skill-description">Expert in semantic HTML5 and modern CSS3, including Flexbox, Grid, and responsive design principles.</p>
-                </div>
-                <div class="skill-card">
-                    
-                    <h3 class="skill-name">JavaScript</h3>
-                    <p class="skill-description">Proficient in vanilla JavaScript, ES6+ features, and creating interactive web experiences.</p>
-                </div>
-                <div class="skill-card">
-                    
-                    <h3 class="skill-name">React</h3>
-                    <p class="skill-description">Building dynamic user interfaces with React, including hooks, state management, and component architecture.</p>
-                </div>
-                <div class="skill-card">
-                    
-                    <h3 class="skill-name">Node.js</h3>
-                    <p class="skill-description">Backend development with Node.js, Express, and RESTful API design for scalable applications.</p>
-                </div>
-                <div class="skill-card">
-                    
-                    <h3 class="skill-name">UI/UX Design</h3>
-                    <p class="skill-description">Creating intuitive and beautiful user interfaces with tools like Figma and Adobe XD.</p>
-                </div>
-                <div class="skill-card">
-                    
-                    <h3 class="skill-name">Responsive Design</h3>
-                    <p class="skill-description">Ensuring seamless experiences across all devices with mobile-first design approach.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <h2>My Portfolio</h2>
-                <p>A selection of projects showcasing my work in web development and design.</p>
-            </div>
-
-            <div class="portfolio-grid">
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600&fit=crop" alt="E-commerce Platform" class="property-image">
-                    <div class="property-details">
-                        <span class="property-category">Web Development</span>
-                        <h3 class="property-title">E-commerce Platform</h3>
-                        <p class="property-description">A modern e-commerce solution with payment integration and inventory management.</p>
-                        <a href="#" class="property-link">View Project →</a>
+                    <blockquote
+                      class="text-gray-800 text-xl md:text-2xl font-medium leading-relaxed mb-8 flex-1"
+                    >
+                      "Tshering transformed our slow, buggy website into a
+                      lightning-fast viewing experience. viewers went up
+                      20% in the first month alone. Truly a WordPress expert."
+                    </blockquote>
+                    <div class="flex flex-col items-center gap-3 mt-auto">
+                      <div
+                        class="h-14 w-14 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg border border-primary/20"
+                      >
+                        JD
+                      </div>
+                      <div class="text-center">
+                        <div class="font-bold text-[#111827] text-lg">
+                          Dawa Selden
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          CEO, E-Shop Solutions
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
-
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Business Dashboard" class="property-image">
-                    <div class="property-details">
-                        <span class="property-category">UI/UX Design</span>
-                        <h3 class="property-title">Business Dashboard</h3>
-                        <p class="property-description">An intuitive analytics dashboard for tracking business metrics and KPIs.</p>
-                        <a href="#" class="property-link">View Project →</a>
+                <div class="snap-center shrink-0 w-full flex-shrink-0 p-4">
+                  <div
+                    class="bg-white rounded-2xl p-8 md:p-12 border border-gray-100 shadow-xl flex flex-col items-center text-center"
+                  >
+                    <div class="mb-6">
+                      <span
+                        class="material-symbols-outlined text-primary text-5xl"
+                        >format_quote</span
+                      >
                     </div>
-                </div>
-
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop" alt="Mobile App Design" class="property-image">
-                    <div class="property-details">
-                        <span class="property-category">Mobile Design</span>
-                        <h3 class="property-title">Mobile App Design</h3>
-                        <p class="property-description">Clean and modern mobile app interface with focus on user experience.</p>
-                        <a href="#" class="property-link">View Project →</a>
+                    <blockquote
+                      class="text-gray-800 text-xl md:text-2xl font-medium leading-relaxed mb-8 flex-1"
+                    >
+                      "The custom plugin suite Alex developed for our membership
+                      platform works flawlessly. The code is clean,
+                      well-documented, and easy for our internal team to
+                      maintain."
+                    </blockquote>
+                    <div class="flex flex-col items-center gap-3 mt-auto">
+                      <div
+                        class="h-14 w-14 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-600 font-bold text-lg border border-purple-500/20"
+                      >
+                        SL
+                      </div>
+                      <div class="text-center">
+                        <div class="font-bold text-[#111827] text-lg">
+                          Sarah Lee
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          CTO, Creative Agency
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
-
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop" alt="Portfolio Website" class="property-image">
-                    <div class="property-details">
-                        <span class="property-category">Web Design</span>
-                        <h3 class="property-title">Portfolio Website</h3>
-                        <p class="property-description">A creative portfolio website for a photographer with stunning visuals.</p>
-                        <a href="#" class="property-link">View Project →</a>
+                <div class="snap-center shrink-0 w-full flex-shrink-0 p-4">
+                  <div
+                    class="bg-white rounded-2xl p-8 md:p-12 border border-gray-100 shadow-xl flex flex-col items-center text-center"
+                  >
+                    <div class="mb-6">
+                      <span
+                        class="material-symbols-outlined text-primary text-5xl"
+                        >format_quote</span
+                      >
                     </div>
-                </div>
-
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?w=800&h=600&fit=crop" alt="Restaurant Website" class="property-image">
-                    <div class="property-details">
-                        <span class="property-category">Web Development</span>
-                        <h3 class="property-title">Restaurant Website</h3>
-                        <p class="property-description">A beautiful website for a local restaurant with online reservation system.</p>
-                        <a href="#" class="property-link">View Project →</a>
+                    <blockquote
+                      class="text-gray-800 text-xl md:text-2xl font-medium leading-relaxed mb-8 flex-1"
+                    >
+                      "We needed a complex API integration with our CRM, and
+                      Alex delivered it ahead of schedule. Professional,
+                      communicative, and technically brilliant."
+                    </blockquote>
+                    <div class="flex flex-col items-center gap-3 mt-auto">
+                      <div
+                        class="h-14 w-14 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 font-bold text-lg border border-emerald-500/20"
+                      >
+                        MR
+                      </div>
+                      <div class="text-center">
+                        <div class="font-bold text-[#111827] text-lg">
+                          Michael Ross
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Director, Ross Realty
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
-
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&h=600&fit=crop" alt="SaaS Platform" class="property-image">
-                    <div class="property-details">
-                        <span class="property-category">Development</span>
-                        <h3 class="property-title">SaaS Platform</h3>
-                        <p class="property-description">A comprehensive SaaS solution with subscription management and analytics.</p>
-                        <a href="#" class="property-link">View Project →</a>
+                <div class="snap-center shrink-0 w-full flex-shrink-0 p-4">
+                  <div
+                    class="bg-white rounded-2xl p-8 md:p-12 border border-gray-100 shadow-xl flex flex-col items-center text-center"
+                  >
+                    <div class="mb-6">
+                      <span
+                        class="material-symbols-outlined text-primary text-5xl"
+                        >format_quote</span
+                      >
                     </div>
+                    <blockquote
+                      class="text-gray-800 text-xl md:text-2xl font-medium leading-relaxed mb-8 flex-1"
+                    >
+                      "Working with Alex on our headless WordPress project was a
+                      breeze. He understands modern frontend frameworks deeply
+                      and how to bridge them with WP."
+                    </blockquote>
+                    <div class="flex flex-col items-center gap-3 mt-auto">
+                      <div
+                        class="h-14 w-14 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-600 font-bold text-lg border border-orange-500/20"
+                      >
+                        EP
+                      </div>
+                      <div class="text-center">
+                        <div class="font-bold text-[#111827] text-lg">
+                          Elena Patel
+                        </div>
+                        <div class="text-sm text-gray-500">
+                          Product Lead, SoftCorp
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-
+            <div class="flex justify-center gap-2 mt-4">
+              <div class="h-2 w-2 rounded-full bg-primary"></div>
+              <div class="h-2 w-2 rounded-full bg-gray-200"></div>
+              <div class="h-2 w-2 rounded-full bg-gray-200"></div>
+              <div class="h-2 w-2 rounded-full bg-gray-200"></div>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Client Testimonials</h2>
-                <p>What my clients say about working with me.</p>
+      <!-- Contact section -->
+      <section class="bg-white py-20" id="contact">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2
+              class="text-3xl font-bold tracking-tight text-[#111827] sm:text-4xl"
+            >
+              Get in Touch
+            </h2>
+            <p class="mt-4 text-lg text-[#4B5563]">
+              Ready to start your next project? Reach out directly via email or
+              phone to discuss your requirements.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div
+              class="flex flex-col items-center p-8 rounded-2xl bg-background-light border border-[#e5e7eb] hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div
+                class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary group-hover:text-white text-2xl"
+                  >mail</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-[#111827] mb-2">Email</h3>
+              <a
+                class="text-[#4B5563] hover:text-primary transition-colors text-lg font-medium"
+                href="mailto:tsheringwangchuk2002@gmail.com"
+                >tsheringwangchuk2002@gmail.com</a
+              >
+              <p class="text-sm text-gray-400 mt-2">Response within 24h</p>
             </div>
-            
-            <div class="testimonials-container">
-                <div class="testimonial-slide active">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="testimonial-image">
-                    <p class="testimonial-text">"Working with this developer was an absolute pleasure. The attention to detail and commitment to delivering a high-quality product exceeded our expectations. Our website looks fantastic and performs beautifully."</p>
-                    <div class="testimonial-author">John Smith</div>
-                    <div class="testimonial-role">CEO, Tech Startup</div>
-                </div>
-
-                <div class="testimonial-slide">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="testimonial-image">
-                    <p class="testimonial-text">"The professionalism and expertise shown throughout our project was remarkable. Communication was clear, deadlines were met, and the final result was exactly what we envisioned. Highly recommend!"</p>
-                    <div class="testimonial-author">Sarah Johnson</div>
-                    <div class="testimonial-role">Marketing Director, E-commerce</div>
-                </div>
-
-                <div class="testimonial-slide">
-                    <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client" class="testimonial-image">
-                    <p class="testimonial-text">"Exceptional work! Our new website has significantly improved our online presence. The design is modern, the functionality is flawless, and our customers love it. Worth every penny."</p>
-                    <div class="testimonial-author">Michael Chen</div>
-                    <div class="testimonial-role">Owner, Restaurant Chain</div>
-                </div>
-
-                <div class="testimonial-nav">
-                    <button class="nav-btn" onclick="changeTestimonial(-1)">←</button>
-                    <button class="nav-btn" onclick="changeTestimonial(1)">→</button>
-                </div>
-
-                <div class="testimonial-dots">
-                    <span class="dot active" onclick="currentTestimonial(0)"></span>
-                    <span class="dot" onclick="currentTestimonial(1)"></span>
-                    <span class="dot" onclick="currentTestimonial(2)"></span>
-                </div>
+            <div
+              class="flex flex-col items-center p-8 rounded-2xl bg-background-light border border-[#e5e7eb] hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div
+                class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary group-hover:text-white text-2xl"
+                  >call</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-[#111827] mb-2">Phone</h3>
+              <a
+                class="text-[#4B5563] hover:text-primary transition-colors text-lg font-medium"
+                href="tel:+97517796132"
+                >+975 17796132</a
+              >
+              <p class="text-sm text-gray-400 mt-2">Mon-Fri, 9am-5pm</p>
             </div>
+            <div
+              class="flex flex-col items-center p-8 rounded-2xl bg-background-light border border-[#e5e7eb] hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div
+                class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-primary group-hover:text-white text-2xl"
+                  >location_on</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-[#111827] mb-2">Location</h3>
+              <span class="text-[#4B5563] text-lg font-medium text-center"
+                >Gelephu, Bhutan<br /><span
+                  class="text-sm text-gray-400 font-normal"
+                  >Remote Available</span
+                ></span
+              >
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Services</h2>
-                <p>Comprehensive web development and design services tailored to your needs.</p>
+      <!-- Footer section -->
+      <footer class="bg-background-dark py-12">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center gap-6"
+          >
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-white/80"
+                >terminal</span
+              >
+              <span class="text-lg font-bold text-white">Tshering</span>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-number">01</div>
-                    <h3>Web Development</h3>
-                    <p>Building responsive, performant websites using modern frameworks and technologies. From simple landing pages to complex web applications, I deliver solutions that work seamlessly across all devices.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">02</div>
-                    <h3>E-commerce Solutions</h3>
-                    <p>Complete e-commerce platforms with secure payment processing, inventory management, and user-friendly shopping experiences. I help businesses sell online effectively and efficiently.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">03</div>
-                    <h3>UI/UX Design</h3>
-                    <p>Creating beautiful, intuitive user interfaces that provide exceptional user experiences. From wireframes to high-fidelity mockups, I design interfaces that users love and that align with your brand.</p>
-                </div>
+            <div class="flex gap-6">
+              <a
+                class="text-gray-400 hover:text-white transition-colors"
+                href="#"
+              >
+                <span class="sr-only">GitHub</span>
+                <svg
+                  aria-hidden="true"
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                class="text-gray-400 hover:text-white transition-colors"
+                href="#"
+              >
+                <span class="sr-only">LinkedIn</span>
+                <svg
+                  aria-hidden="true"
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
             </div>
+          </div>
+          <div
+            class="mt-8 border-t border-gray-800 pt-8 flex justify-center md:justify-start"
+          >
+            <p class="text-sm text-gray-500">
+              © 2026 Tshering Wangchuk. All rights reserved.
+            </p>
+          </div>
         </div>
-    </section>
+      </footer>
+      <a
+        aria-label="Chat on WhatsApp"
+        class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
+        href="https://wa.me/+97517796132"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <svg
+          class="h-8 w-8"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+          ></path>
+        </svg>
+      </a>
+    </div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-container">
-                <div class="contact-content">
-                    <h2>Let's Work Together</h2>
-                    <p class="contact-intro">Have a project in mind? I'd love to hear about it. Get in touch and let's create something amazing together.</p>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-details">
-                                <h4>Location</h4>
-                                <p>Thimphu, Bhutan</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-details">
-                                <h4>Email</h4>
-                                <p><a href="mailto:contact@example.com">contact@example.com</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-details">
-                                <h4>Phone</h4>
-                                <p>+975 XXXX XXXX</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Phone Number" required>
-                        </div>
-                        <div class="form-group">
-                            <select required>
-                                <option value="">Project Type</option>
-                                <option value="website">Website Development</option>
-                                <option value="webapp">Web Application</option>
-                                <option value="design">UI/UX Design</option>
-                                <option value="consulting">Consulting</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Tell me about your project" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Portfolio. All rights reserved. Built with passion by a web developer in Bhutan.</p>
-            </div>
-        </div>
-    </footer>
-        
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

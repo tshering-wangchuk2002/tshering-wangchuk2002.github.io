@@ -1,139 +1,100 @@
-// Testimonial Slider
-let currentSlide = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector("#testimonials .overflow-x-auto");
+  const slides = slider.children;
+  const prevBtn = document.querySelector(
+    'button[aria-label="Previous testimonial"]'
+  );
+  const nextBtn = document.querySelector(
+    'button[aria-label="Next testimonial"]'
+  );
+  const dots = document.querySelectorAll("#testimonials .h-2.w-2");
 
-function showTestimonial(index) {
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.dot');
-    
-    if (index >= slides.length) currentSlide = 0;
-    if (index < 0) currentSlide = slides.length - 1;
-    
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
+  let index = 0;
+  const total = slides.length;
+
+  function scrollToSlide(i) {
+    index = (i + total) % total;
+    slider.scrollTo({
+      left: slides[index].offsetLeft,
+      behavior: "smooth",
+    });
+    updateDots();
+  }
+
+  function updateDots() {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("bg-primary", i === index);
+      dot.classList.toggle("bg-gray-200", i !== index);
+    });
+  }
+
+  nextBtn.addEventListener("click", () => scrollToSlide(index + 1));
+  prevBtn.addEventListener("click", () => scrollToSlide(index - 1));
+
+  // Autoplay
+  let autoplay = setInterval(() => scrollToSlide(index + 1), 4000);
+
+  // Pause on hover
+  slider.parentElement.addEventListener("mouseenter", () =>
+    clearInterval(autoplay)
+  );
+  slider.parentElement.addEventListener("mouseleave", () => {
+    autoplay = setInterval(() => scrollToSlide(index + 1), 4000);
+  });
+
+  // Detect swipe/scroll
+  slider.addEventListener("scroll", () => {
+    const slideWidth = slides[0].offsetWidth;
+    index = Math.round(slider.scrollLeft / slideWidth);
+    updateDots();
+  });
+
+  updateDots();
+});
+
+// Scroll Effect
+let currentScroll = 0;
+let targetScroll = 0;
+let ease = 0.08;
+
+// Handle anchor links
+window.addEventListener("hashchange", () => {
+  const target = document.querySelector(window.location.hash);
+  if (target) {
+    targetScroll = target.offsetTop;
+    currentScroll = window.scrollY; // Sync current position
+  }
+});
+
+// Check for hash on page load
+if (window.location.hash) {
+  const target = document.querySelector(window.location.hash);
+  if (target) {
+    setTimeout(() => {
+      targetScroll = target.offsetTop;
+      currentScroll = target.offsetTop;
+      window.scrollTo(0, currentScroll);
+    }, 0);
+  }
 }
 
-function changeTestimonial(direction) {
-    currentSlide += direction;
-    const slides = document.querySelectorAll('.testimonial-slide');
-    if (currentSlide >= slides.length) currentSlide = 0;
-    if (currentSlide < 0) currentSlide = slides.length - 1;
-    showTestimonial(currentSlide);
+window.addEventListener(
+  "wheel",
+  (e) => {
+    e.preventDefault();
+    targetScroll += e.deltaY;
+    targetScroll = Math.max(
+      0,
+      Math.min(targetScroll, document.body.scrollHeight - window.innerHeight)
+    );
+  },
+  { passive: false }
+);
+
+function smoothScroll() {
+  currentScroll += (targetScroll - currentScroll) * ease;
+  window.scrollTo(0, currentScroll);
+  requestAnimationFrame(smoothScroll);
 }
 
-function currentTestimonial(index) {
-    currentSlide = index;
-    showTestimonial(currentSlide);
-}
-
-// Auto-play testimonials
-setInterval(() => {
-    changeTestimonial(1);
-}, 5000);
-
-// Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
-
-menuToggle.addEventListener('click', function() {
-    this.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-menu a');
-navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-        menuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
-
-// Smooth scrolling for navigation links
-navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href.startsWith('#')) {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = target.offsetTop - headerHeight;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-});
-
-// Header scroll effect
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-
-// Filter tabs functionality
-const filterTabs = document.querySelectorAll('.filter-tab');
-filterTabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-        filterTabs.forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-    });
-});
-
-// Pagination dots
-const pageDots = document.querySelectorAll('.page-dot');
-pageDots.forEach(dot => {
-    dot.addEventListener('click', function() {
-        pageDots.forEach(d => d.classList.remove('active'));
-        this.classList.add('active');
-    });
-});
-
-// Scroll animation
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.property-card, .service-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'all 0.6s ease-out';
-    observer.observe(el);
-});
-
-// Animate skill cards on scroll
-document.querySelectorAll('.skill-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'all 0.6s ease-out';
-    observer.observe(el);
-});
-
-// Contact form handling
-const contactForm = document.querySelector('.contact-form form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Thank you for your message! I will get back to you soon.');
-        this.reset();
-    });
-}
+smoothScroll();
