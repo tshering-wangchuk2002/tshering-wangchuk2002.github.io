@@ -55,17 +55,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // menu bar
-// Mobile Menu Toggle Functionality
+// Mobile Menu Toggle - Optimized for tshering-wangchuk2002.github.io
 document.addEventListener('DOMContentLoaded', function() {
-  // Get the menu button and create mobile menu
-  const menuButton = document.querySelector('.md\\:hidden');
-  const nav = document.querySelector('nav');
+  const menuButton = document.querySelector('.md\\:hidden button');
+  const header = document.querySelector('header');
   
-  // Create mobile menu container
+  // Create mobile menu
   const mobileMenu = document.createElement('div');
-  mobileMenu.className = 'mobile-menu hidden md:hidden fixed inset-0 z-40 bg-white';
+  mobileMenu.id = 'mobile-menu';
+  mobileMenu.className = 'hidden md:hidden fixed inset-0 z-50 bg-white';
   mobileMenu.innerHTML = `
     <div class="flex flex-col h-full">
+      <!-- Header -->
       <div class="flex items-center justify-between p-4 border-b border-[#e7ebf3]">
         <div class="flex items-center gap-2">
           <div class="flex items-center justify-center rounded-lg bg-primary/10 p-1.5 text-primary">
@@ -73,49 +74,67 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           <span class="text-lg font-bold tracking-tight text-[#0d121b]">Tshering</span>
         </div>
-        <button class="close-menu p-2 text-gray-600">
+        <button id="close-menu" class="p-2 text-gray-600 hover:text-gray-900">
           <span class="material-symbols-outlined">close</span>
         </button>
       </div>
-      <nav class="flex flex-col gap-1 p-4">
+      
+      <!-- Navigation Links -->
+      <nav class="flex flex-col gap-2 p-4 overflow-y-auto">
         <a class="text-base font-medium text-[#4B5563] hover:text-primary hover:bg-gray-50 px-4 py-3 rounded-lg transition-colors" href="#work">Work</a>
         <a class="text-base font-medium text-[#4B5563] hover:text-primary hover:bg-gray-50 px-4 py-3 rounded-lg transition-colors" href="#services">Services</a>
         <a class="text-base font-medium text-[#4B5563] hover:text-primary hover:bg-gray-50 px-4 py-3 rounded-lg transition-colors" href="#about">About</a>
         <a class="text-base font-medium text-[#4B5563] hover:text-primary hover:bg-gray-50 px-4 py-3 rounded-lg transition-colors" href="#testimonials">Testimonials</a>
         <a class="text-base font-medium text-[#4B5563] hover:text-primary hover:bg-gray-50 px-4 py-3 rounded-lg transition-colors" href="#contact">Contact</a>
-        <a class="mt-4 inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary/90 transition-all" href="#contact">Hire Me</a>
+        
+        <!-- Hire Me Button -->
+        <a class="mt-6 inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary/90 transition-all" href="#contact">
+          Hire Me
+        </a>
       </nav>
     </div>
   `;
   
-  // Insert mobile menu into the document
+  // Add to body
   document.body.appendChild(mobileMenu);
   
-  // Get close button
-  const closeButton = mobileMenu.querySelector('.close-menu');
+  // Get elements
+  const closeButton = document.getElementById('close-menu');
+  const menuLinks = mobileMenu.querySelectorAll('a');
   
-  // Toggle menu function
-  function toggleMenu() {
-    mobileMenu.classList.toggle('hidden');
-    document.body.classList.toggle('overflow-hidden');
+  // Toggle function
+  function toggleMenu(show) {
+    if (show) {
+      mobileMenu.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    } else {
+      mobileMenu.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
   }
   
-  // Open menu when hamburger is clicked
-  menuButton.addEventListener('click', toggleMenu);
+  // Open menu
+  menuButton.addEventListener('click', () => toggleMenu(true));
   
-  // Close menu when close button is clicked
-  closeButton.addEventListener('click', toggleMenu);
+  // Close menu
+  closeButton.addEventListener('click', () => toggleMenu(false));
   
-  // Close menu when a nav link is clicked
-  const mobileNavLinks = mobileMenu.querySelectorAll('a');
-  mobileNavLinks.forEach(link => {
-    link.addEventListener('click', toggleMenu);
+  // Close on link click
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => toggleMenu(false));
   });
   
-  // Close menu when clicking outside
-  mobileMenu.addEventListener('click', function(e) {
+  // Close on outside click
+  mobileMenu.addEventListener('click', (e) => {
     if (e.target === mobileMenu) {
-      toggleMenu();
+      toggleMenu(false);
+    }
+  });
+  
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+      toggleMenu(false);
     }
   });
 });
