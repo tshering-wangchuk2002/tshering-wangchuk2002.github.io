@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JJK S3 — Culling Game Countdown</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #e63232;
+    --dark-red: #8b0000;
+    --black: #080808;
+    --off-white: #f0e8d8;
+    --gold: #c9a84c;
+    --ink: #1a1a2e;
+    --dim: rgba(240,232,216,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--off-white);
+    font-family: 'Noto Sans JP', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Ink wash background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,0,0,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(26,26,46,0.6) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(240,232,216,0.015) 60px, rgba(240,232,216,0.015) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(240,232,216,0.015) 60px, rgba(240,232,216,0.015) 61px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Grain overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: -50%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 1;
+    animation: grain 0.5s steps(1) infinite;
+  }
+
+  @keyframes grain {
+    0%, 100% { transform: translate(0,0); }
+    10% { transform: translate(-3%,-3%); }
+    20% { transform: translate(3%,1%); }
+    30% { transform: translate(-1%,3%); }
+    40% { transform: translate(2%,-2%); }
+    50% { transform: translate(-3%,1%); }
+    60% { transform: translate(3%,3%); }
+    70% { transform: translate(-2%,-1%); }
+    80% { transform: translate(1%,2%); }
+    90% { transform: translate(-1%,-3%); }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* HEADER */
+  header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .eyebrow {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 10vw, 96px);
+    line-height: 0.9;
+    letter-spacing: 0.03em;
+    background: linear-gradient(180deg, var(--off-white) 0%, rgba(240,232,216,0.55) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+  }
+
+  h1 span {
+    color: var(--red);
+    -webkit-text-fill-color: var(--red);
+  }
+
+  .subtitle {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: rgba(240,232,216,0.4);
+    margin-top: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 28px auto;
+    max-width: 300px;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .divider::after { background: linear-gradient(90deg, var(--gold), transparent); }
+  .divider-icon { color: var(--gold); font-size: 14px; }
+
+  /* NEXT EPISODE HERO */
+  .next-ep {
+    background: linear-gradient(135deg, rgba(139,0,0,0.2) 0%, rgba(26,26,46,0.4) 100%);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 4px;
+    padding: 40px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .next-ep::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--dark-red), var(--red), var(--gold));
+  }
+
+  .next-ep-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .next-ep-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(26px, 5vw, 42px);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .next-ep-meta {
+    font-size: 12px;
+    color: rgba(240,232,216,0.5);
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+  }
+
+  /* COUNTDOWN TIMER */
+  .countdown {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .time-block {
+    text-align: center;
+    min-width: 70px;
+  }
+
+  .time-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 8vw, 72px);
+    line-height: 1;
+    color: var(--off-white);
+    display: block;
+    position: relative;
+  }
+
+  .time-number.urgent { color: var(--red); animation: pulse 1s ease infinite; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .time-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    color: rgba(240,232,216,0.35);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .time-sep {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: rgba(240,232,216,0.2);
+    padding-bottom: 18px;
+    line-height: 1;
+  }
+
+  .aired-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    padding: 10px 18px;
+    border-radius: 2px;
+  }
+
+  .notify-btn {
+    margin-top: 28px;
+    background: none;
+    border: 1px solid var(--red);
+    color: var(--off-white);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .notify-btn:hover {
+    background: var(--red);
+    box-shadow: 0 0 20px rgba(230,50,50,0.4);
+  }
+  .notify-btn.enabled {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.1);
+    color: var(--gold);
+  }
+  .notify-btn .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--red);
+    animation: blink 1.5s ease infinite;
+  }
+  .notify-btn.enabled .dot { background: var(--gold); }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  /* EPISODE LIST */
+  .episodes-section {
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.15em;
+    color: rgba(240,232,216,0.5);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(240,232,216,0.08);
+  }
+
+  .ep-grid {
+    display: grid;
+    gap: 8px;
+  }
+
+  .ep-item {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+    background: var(--dim);
+    border: 1px solid rgba(240,232,216,0.06);
+    border-radius: 3px;
+    transition: all 0.2s;
+    cursor: default;
+  }
+
+  .ep-item:hover {
+    background: rgba(240,232,216,0.05);
+    border-color: rgba(240,232,216,0.12);
+  }
+
+  .ep-item.aired {
+    border-color: rgba(201,168,76,0.12);
+  }
+
+  .ep-item.current {
+    background: rgba(139,0,0,0.15);
+    border-color: rgba(230,50,50,0.35);
+    box-shadow: 0 0 20px rgba(230,50,50,0.08);
+  }
+
+  .ep-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: rgba(240,232,216,0.2);
+    line-height: 1;
+  }
+
+  .ep-item.aired .ep-num { color: var(--gold); opacity: 0.6; }
+  .ep-item.current .ep-num { color: var(--red); opacity: 1; }
+
+  .ep-info {}
+  .ep-name {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+  }
+  .ep-item.upcoming .ep-name { color: rgba(240,232,216,0.45); }
+  .ep-date {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: rgba(240,232,216,0.3);
+    letter-spacing: 0.1em;
+    margin-top: 3px;
+  }
+  .ep-item.current .ep-date { color: rgba(230,50,50,0.7); }
+
+  .ep-status {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    padding: 4px 8px;
+    border-radius: 2px;
+  }
+  .status-aired { color: var(--gold); border: 1px solid rgba(201,168,76,0.25); background: rgba(201,168,76,0.08); }
+  .status-today { color: var(--red); border: 1px solid rgba(230,50,50,0.4); background: rgba(230,50,50,0.1); animation: pulse 1.5s ease infinite; }
+  .status-upcoming { color: rgba(240,232,216,0.25); border: 1px solid rgba(240,232,216,0.08); }
+
+  /* NOTIFICATION TOAST */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--ink);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    max-width: 320px;
+    z-index: 100;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .toast.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .toast-title { color: var(--gold); margin-bottom: 4px; font-size: 11px; letter-spacing: 0.3em; }
+  .toast-msg { color: rgba(240,232,216,0.8); }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .recap-note {
+    font-size: 11px;
+    color: rgba(240,232,216,0.3);
+    font-style: italic;
+    padding: 0 0 0 72px;
+    margin-top: -4px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: rgba(240,232,216,0.15);
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <p class="eyebrow">「呪術廻戦」— Season 3 · The Culling Game Part 1</p>
+    <h1>JUJUTSU<br><span>KAISEN</span></h1>
+    <div class="divider"><span class="divider-icon">✦</span></div>
+    <p class="subtitle">Episode Countdown — Thursdays at 9:00 AM PT on Crunchyroll</p>
+  </header>
+
+  <!-- NEXT EPISODE CARD -->
+  <div class="next-ep" id="nextEpCard">
+    <p class="next-ep-label">▶ Next Episode</p>
+    <h2 class="next-ep-title" id="nextEpTitle">Loading...</h2>
+    <p class="next-ep-meta" id="nextEpMeta"></p>
+
+    <div class="countdown" id="countdown">
+      <div class="time-block">
+        <span class="time-number" id="days">00</span>
+        <p class="time-label">Days</p>
+      </div>
+      <div class="time-sep">:</div>
+      <div class="time-block">
+        <span class="time-number" id="hours">00</span>
+        <p class="time-label">Hours</p>
+      </div>
+      <div class="time-sep">:</div>
+      <div class="time-block">
+        <span class="time-number" id="minutes">00</span>
+        <p class="time-label">Min</p>
+      </div>
+      <div class="time-sep">:</div>
+      <div class="time-block">
+        <span class="time-number" id="seconds">00</span>
+        <p class="time-label">Sec</p>
+      </div>
+    </div>
+
+    <div>
+      <button class="notify-btn" id="notifyBtn" onclick="toggleNotifications()">
+        <span class="dot"></span>
+        <span id="notifyLabel">Enable Episode Notifications</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- EPISODE LIST -->
+  <div class="episodes-section">
+    <h3 class="section-title">Full Schedule</h3>
+    <div class="ep-grid" id="epGrid"></div>
+  </div>
+
+  <footer>
+    <p>Updates every second · All times in your local timezone · Data: Crunchyroll / JJK Official</p>
+  </footer>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <p class="toast-title">NOTIFICATION</p>
+  <p class="toast-msg" id="toastMsg"></p>
+</div>
+
+<script>
+// Episode schedule — all times in UTC (9:00 AM PT = 17:00 UTC during PST, 16:00 UTC during PDT)
+// Feb 26 = PDT not yet, still PST → 17:00 UTC. Mar 5+ = PDT → 16:00 UTC
+const episodes = [
+  { num: 1,  title: "Execution",                    date: "2026-01-08T17:00:00Z", aired: true },
+  { num: 2,  title: "One More Time",                date: "2026-01-08T17:00:00Z", aired: true },
+  { num: 3,  title: "Episode 3",                    date: "2026-01-15T17:00:00Z", aired: true },
+  { num: 4,  title: "Episode 4",                    date: "2026-01-22T17:00:00Z", aired: true },
+  { num: 5,  title: "Episode 5",                    date: "2026-01-29T17:00:00Z", aired: true },
+  { num: 6,  title: "Episode 6",                    date: "2026-02-05T17:00:00Z", aired: true },
+  { num: 7,  title: "Tokyo Colony No. 1",           date: "2026-02-12T17:00:00Z", aired: true },
+  { num: "S", title: "Special Recap (No new ep)",   date: "2026-02-19T17:00:00Z", aired: true, special: true },
+  { num: 8,  title: "Episode 8",                    date: "2026-02-26T17:00:00Z" },
+  { num: 9,  title: "Episode 9",                    date: "2026-03-05T16:00:00Z" },
+  { num: 10, title: "Episode 10",                   date: "2026-03-12T16:00:00Z" },
+  { num: 11, title: "Episode 11",                   date: "2026-03-19T16:00:00Z" },
+  { num: 12, title: "Episode 12",                   date: "2026-03-26T16:00:00Z" },
+];
+
+let notificationsEnabled = false;
+let scheduledAlerts = [];
+const now = () => new Date();
+
+function getNextEpisode() {
+  const n = now().getTime();
+  // Find the first non-special episode that hasn't aired yet (air date in future)
+  const upcoming = episodes.filter(e => !e.special && !e.aired && new Date(e.date).getTime() > n - 3600000);
+  if (upcoming.length > 0) return upcoming[0];
+  // If all aired, return last
+  return episodes[episodes.length - 1];
+}
+
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function updateCountdown() {
+  const next = getNextEpisode();
+  const target = new Date(next.date).getTime();
+  const diff = target - now().getTime();
+
+  const titleEl = document.getElementById('nextEpTitle');
+  const metaEl = document.getElementById('nextEpMeta');
+
+  if (diff <= 0 && diff > -7200000) {
+    // Currently airing window
+    titleEl.textContent = `EP ${next.num} — AIRING NOW`;
+    document.getElementById('countdown').innerHTML = `<div class="aired-badge">⚡ EPISODE IS LIVE ON CRUNCHYROLL</div>`;
+    metaEl.textContent = `Watch at crunchyroll.com`;
+    return;
+  }
+
+  if (diff <= 0) {
+    // Mark as aired and recalc
+    next.aired = true;
+    updateCountdown();
+    buildEpGrid();
+    return;
+  }
+
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+
+  titleEl.textContent = `EP ${next.num} — ${next.title}`;
+  metaEl.textContent = `${new Date(next.date).toLocaleDateString(undefined, {weekday:'long', month:'long', day:'numeric', year:'numeric'})} · Crunchyroll`;
+
+  const isUrgent = d === 0 && h < 1;
+
+  document.getElementById('days').textContent = pad(d);
+  document.getElementById('hours').textContent = pad(h);
+  document.getElementById('minutes').textContent = pad(m);
+  document.getElementById('seconds').textContent = pad(s);
+
+  ['days','hours','minutes','seconds'].forEach(id => {
+    const el = document.getElementById(id);
+    if (isUrgent) el.classList.add('urgent');
+    else el.classList.remove('urgent');
+  });
+}
+
+function buildEpGrid() {
+  const grid = document.getElementById('epGrid');
+  const n = now().getTime();
+  grid.innerHTML = '';
+
+  episodes.forEach(ep => {
+    const epTime = new Date(ep.date).getTime();
+    const isAired = ep.aired || epTime < n - 7200000;
+    const isCurrent = !ep.special && epTime > n - 7200000 && epTime <= n + (diff => diff > 0 ? diff : 0)(0);
+    const isToday = !ep.special && Math.abs(epTime - n) < 86400000 * 0.5;
+
+    let cls = 'ep-item ';
+    if (isAired) cls += ep.special ? 'special' : 'aired';
+    else if (isToday) cls += 'current';
+    else cls += 'upcoming';
+
+    let statusHtml = '';
+    if (isAired) statusHtml = `<span class="ep-status status-aired">AIRED</span>`;
+    else if (isToday) statusHtml = `<span class="ep-status status-today">TODAY</span>`;
+    else statusHtml = `<span class="ep-status status-upcoming">UPCOMING</span>`;
+
+    const dateStr = new Date(ep.date).toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
+    const timeStr = new Date(ep.date).toLocaleTimeString(undefined, {hour:'2-digit', minute:'2-digit'});
+
+    const div = document.createElement('div');
+    div.className = cls;
+    div.innerHTML = `
+      <div class="ep-num">${ep.num}</div>
+      <div class="ep-info">
+        <div class="ep-name">${ep.title}${ep.special ? ' <em style="opacity:0.5;font-size:11px">(recap)</em>' : ''}</div>
+        <div class="ep-date">${dateStr} · ${timeStr} local time</div>
+      </div>
+      ${statusHtml}
+    `;
+    grid.appendChild(div);
+  });
+}
+
+// NOTIFICATIONS
+async function toggleNotifications() {
+  if (notificationsEnabled) {
+    notificationsEnabled = false;
+    scheduledAlerts.forEach(clearTimeout);
+    scheduledAlerts = [];
+    document.getElementById('notifyBtn').classList.remove('enabled');
+    document.getElementById('notifyLabel').textContent = 'Enable Episode Notifications';
+    showToast('Notifications disabled.');
+    return;
+  }
+
+  if (!('Notification' in window)) {
+    showToast('Your browser does not support notifications. Try Chrome or Firefox.');
+    return;
+  }
+
+  const perm = await Notification.requestPermission();
+  if (perm !== 'granted') {
+    showToast('Permission denied. Please allow notifications in your browser settings.');
+    return;
+  }
+
+  notificationsEnabled = true;
+  document.getElementById('notifyBtn').classList.add('enabled');
+  document.getElementById('notifyLabel').textContent = 'Notifications Enabled ✓';
+
+  scheduleNotifications();
+  showToast('Notifications enabled! You\'ll be alerted 15 min before each episode.');
+}
+
+function scheduleNotifications() {
+  const n = now().getTime();
+  episodes.forEach(ep => {
+    if (ep.special) return;
+    const target = new Date(ep.date).getTime();
+    // 15 minutes before
+    const alertTime = target - 15 * 60 * 1000;
+    const delay = alertTime - n;
+    if (delay > 0) {
+      const id = setTimeout(() => {
+        new Notification(`🔵 JJK S3 — Episode ${ep.num} in 15 minutes!`, {
+          body: `${ep.title} drops soon on Crunchyroll. Get ready!`,
+          icon: 'https://i.imgur.com/JKW5g8f.png',
+          tag: `jjk-ep-${ep.num}`
+        });
+      }, delay);
+      scheduledAlerts.push(id);
+    }
+    // At air time
+    const onAirDelay = target - n;
+    if (onAirDelay > 0) {
+      const id = setTimeout(() => {
+        new Notification(`⚡ JJK S3 — Episode ${ep.num} is LIVE!`, {
+          body: `${ep.title} is now streaming on Crunchyroll!`,
+          tag: `jjk-ep-${ep.num}-live`
+        });
+      }, onAirDelay);
+      scheduledAlerts.push(id);
+    }
+  });
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4000);
+}
+
+// INIT
+buildEpGrid();
+updateCountdown();
+setInterval(() => {
+  updateCountdown();
+}, 1000);
+
+// Rebuild grid every minute
+setInterval(buildEpGrid, 60000);
+</script>
+</body>
+</html>
